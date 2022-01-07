@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<title>Welcome to FZX Website</title>
+		     <link rel="icon" href="https://i.ibb.co/jHXN7nG/20211001-113115.jpg">
+		       <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+		    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="css/tachyons-animate.css">
+                <audio id='bgMusic' src='https://fzxcodes.github.io/noevent.mp3' loop></audio>
+      
+		<style>
+			        body, h1, h2, p, marquee, a,td, span {
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+        }
+        .wrap {
+            background-color:rgba(255, 255, 255, 0.7);
+            width: 800px;
+            color:black;
+            margin: 20px auto;
+            padding:15px;
+        }
+        .icon {
+            padding:5px;
+            text-align: center;
+        }
+        span {
+            color: maroon;
+        }
+        body{
+		width:100%;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+	div.popup{
+		position:fixed;
+		top:0;
+		bottom:0;
+		left:0;
+		right:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,.8);
+	}
+	
+	div#box{
+		margin:5% auto;
+		background:#fff;
+		width:50%;
+		height:50%;
+		-webkit-box-shadow:0 0 15px #000;
+		-moz-box-shadow:0 0 15px #000;
+		box-shadow:0 0 15px #000;
+	}
+	</style>
+  
+			
+        <h1 align="center">Hello<span>Cuy!</span></h1>
+		<h2>Halo, Saya FZX. Website ini dibuat oleh saya untuk memberi fitur/file/script yg mungkin kalian butuhkan</h2>
+	<marquee>INFO : Selamat Datang di dashboard web.</marquee>
+	
+		<br>     <div align="center" class="link fw9 dark-blue">
+			<a href="listfile.html">LIST FILE</a>
+			</div>
+			
+			<br>     <div align="center" class="link fw9 dark-blue">
+			<a href="TTTGame/">[FUN] TicTacToe Game</a>
+			</div>
+			
+			<br>     <div align="center" class="link fw9 dark-blue">
+			<a href="GuKeBa/">[FUN] Gunting Kertas Game</a>
+			</div>
+			
+				<br>     <div align="center" class="link fw9 dark-blue">
+			<a href="GuKeBa/">[COUPL] Random PP Couple Anime</a>
+			</div>
+			
+			<br>     <div align="center" class="link fw9 dark-blue">
+			<a href="ImgUpload/">[STRG] ImgBB Uploader</a>
+			</div>
+					
+				
+		    <div align="center" class="link fw9 dark-blue">
+			<h3>© Fzx 2022, All Rights Reserved</h3>
+			</div>
+			
+			    <div align="center" class="link fw9 dark-blue">
+				<a href="https://instagram.com/faiz_x.v">Instagram,</a>
+				<a href="https://tiktok.com/@faizz_fzx">TikTok,</a>
+				<a href="https://youtube.com/channel/UCIO5jgdnY1Cb6zOLpXQaChg">Official YouTube Channel</a>
+				</div>
+				<br>
+					
+					  <div align="center" class="link fw9 dark-blue">
+					<input type="button" value="Klik 2x untuk play Backsound" onclick="LiveMuusic()">
+					</div>
+					
+					 
+					<div align="center" class="link fw9 dark-blue">
+						<p>Countdown Ramadhan</p>
+        <h2 id="days">00</h2>
+        <p><small>days</small></p>
+        <h2 id="hours">00</h2>
+        <p><small>hours</small></p>
+        <h2 id="minutes">00</h2>
+        <p><small>minutes</small></p>
+        <h2 id="seconds">00</h2>
+        <p><small>seconds</small></p>
+					<p>Menuju Ramadhan 2022</p>
+					</div>
+					  
+					   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+		       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+					<script>
+	
+
+
+var audioPlaying = true;
+        function LiveMuusic(){
+            
+        var audio = document.getElementById("bgMusic");
+        if (!audioPlaying) audio.play();
+        else audio.pause();
+        audioPlaying = !audioPlaying;
+        swal("Playing Alan Walker - On My Way ")
+        }
+   
+ // Countdown Function
+
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+const countdown = document.getElementById("countdown");
+const year = document.getElementById("year");
+const loading = document.getElementById("loading");
+// backup :     <div id="year" class="year"></div>
+const nextYear = new Date().getFullYear() + 1;
+const newYearTime = new Date(`April 02 2022 00:00:00`);
+
+function updateCountdown() {
+  const currentTime = new Date();
+  const difference = newYearTime - currentTime;
+  const currentDays = Math.floor(difference / 1000 / 60 / 60 / 24);
+  const currentHours = Math.floor(difference / 1000 / 60 / 60) % 24;
+  const currentMinutes = Math.floor(difference / 1000 / 60) % 60;
+  const currentSeconds = Math.floor(difference / 1000) % 60;
+  days.innerText = currentDays;
+  hours.innerText = currentHours < 10 ? "0" + currentHours : currentHours;
+  minutes.innerText =
+    currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
+  seconds.innerText =
+    currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
+}
+
+setTimeout(() => {
+  loading.remove();
+  countdown.style.display = "flex";
+}, 1000);
+
+setInterval(updateCountdown, 1000);
+
+year.innerText = nextYear;   
+
+
+
+
+</script>
+					
+					
+	</html>
+	</head>
