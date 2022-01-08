@@ -48,6 +48,7 @@
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Selamat datang di dashboard. <span class="text-black fw-bold"></span></h1>
             <h3 class="welcome-sub-text">selamat menikmati dashboard yang baru. </h3>
+            
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -609,6 +610,15 @@
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
+  <script>
+var audioPlaying = true;
+        function LiveMuusic(){
+        var audio = document.getElementById("bgMusic");
+        if (!audioPlaying) audio.play();
+        else audio.pause();
+        audioPlaying = !audioPlaying;
+        }
+</script>
   <!-- End custom js for this page-->
 </body>
 
