@@ -10,19 +10,22 @@
 
 --- START COPAS |||
 
-if(!isOwner)return textImg('Only Owner')
-let getGroups = await conn.groupFetchAllParticipating()
-let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-let anu = groups.map(v => v.id)
-cc = await smsg(conn, q ? M : M.quoted ? await M.quoted.fakeObj : false || M)
-cck = q ? q : cc.q
-M.reply(`Mengirim Broadcast Ke ${anu.length} Chat, Waktu Selesai ${anu.length * 1.5} detik`)
-for (let i of anu) {
-await sleep(1500)
-await conn.copyNForward(i, conn.cMod(M.chat, cc, /|broadcast|bcgc/i.test(cck) ? cck : `*𝘽𝙧𝙤𝙖𝙙𝘾𝙖𝙨𝙩*\n\n ${cck}`), true).catch(_ => _)
-}
-M.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
-}---
+case 'bcgc': case 'bc': case 'broadcast': {
+                if (!isCreator) throw mess.owner
+                let getGroups = await client.groupFetchAllParticipating()
+                let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+                let anu = groups.map(v => v.id)
+                oi = await smsg(client, text ? m : m.quoted ? await m.quoted.fakeObj : false || m)
+                pms = text ? text : cc.text
+                m.reply(`Mengirim Broadcast Ke ${anu.length} Chat, Waktu Selesai ${anu.length * 1.5} detik`)
+                for (let i of anu) {
+                    await sleep(1500)
+                    await client.copyNForward(i, client.cMod(m.chat, oi, /bc|broadcast|bcgc/i.test(oik) ? cck : `「 *RISKA-BC* 」\n\n ${pms}`), true).catch(_ => _)
+                }
+                m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
+            }
+            break
+
 
  ||| END COPAS
 
