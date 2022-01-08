@@ -1,173 +1,615 @@
-<html>
-	<head>
-		<title>Welcome to FZX Website</title>
-		     <link rel="icon" href="https://i.ibb.co/jHXN7nG/20211001-113115.jpg">
-		       <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
-		    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" href="css/tachyons-animate.css">
-                <audio id='bgMusic' src='https://fzxcodes.github.io/noevent.mp3' loop></audio>
-      
-		<style>
-			        body, h1, h2, p, marquee, a,td, span {
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-        }
-        .wrap {
-            background-color:rgba(255, 255, 255, 0.7);
-            width: 800px;
-            color:black;
-            margin: 20px auto;
-            padding:15px;
-        }
-        .icon {
-            padding:5px;
-            text-align: center;
-        }
-        span {
-            color: maroon;
-        }
-        body{
-		width:100%;
-		height:100%;
-		margin:0;
-		padding:0;
-	}
-	div.popup{
-		position:fixed;
-		top:0;
-		bottom:0;
-		left:0;
-		right:0;
-		width:100%;
-		height:100%;
-		background: rgba(0,0,0,.8);
-	}
-	
-	div#box{
-		margin:5% auto;
-		background:#fff;
-		width:50%;
-		height:50%;
-		-webkit-box-shadow:0 0 15px #000;
-		-moz-box-shadow:0 0 15px #000;
-		box-shadow:0 0 15px #000;
-	}
-	</style>
-  
-			
-        <h1 align="center">Hello<span>Cuy!</span></h1>
-		<h2>Halo, Saya FZX. Website ini dibuat oleh saya untuk memberi fitur/file/script yg mungkin kalian butuhkan</h2>
-	<marquee>INFO : Selamat Datang di dashboard web.</marquee>
-	
-		<br>     <div align="center" class="link fw9 dark-blue">
-			<a href="listfile.html">LIST FILE</a>
-			</div>
-			
-			<br>     <div align="center" class="link fw9 dark-blue">
-			<a href="TTTGame/">[FUN] TicTacToe Game</a>
-			</div>
-			
-			<br>     <div align="center" class="link fw9 dark-blue">
-			<a href="GuKeBa/">[FUN] Gunting Kertas Game</a>
-			</div>
-			
-				<br>     <div align="center" class="link fw9 dark-blue">
-			<a href="GuKeBa/">[COUPL] Random PP Couple Anime</a>
-			</div>
-			
-			<br>     <div align="center" class="link fw9 dark-blue">
-			<a href="ImgUpload/">[STRG] ImgBB Uploader</a>
-			</div>
-					
-				
-		    <div align="center" class="link fw9 dark-blue">
-			<h3>© Fzx 2022, All Rights Reserved</h3>
-			</div>
-			
-			    <div align="center" class="link fw9 dark-blue">
-				<a href="https://instagram.com/faiz_x.v">Instagram,</a>
-				<a href="https://tiktok.com/@faizz_fzx">TikTok,</a>
-				<a href="https://youtube.com/channel/UCIO5jgdnY1Cb6zOLpXQaChg">Official YouTube Channel</a>
-				</div>
-				<br>
-					
-					  <div align="center" class="link fw9 dark-blue">
-					<input type="button" value="Klik 2x untuk play Backsound" onclick="LiveMuusic()">
-					</div>
-					
-					 
-					<div align="center" class="link fw9 dark-blue">
-						<p>Countdown Ramadhan</p>
-        <h2 id="days">00</h2>
-        <p><small>days</small></p>
-        <h2 id="hours">00</h2>
-        <p><small>hours</small></p>
-        <h2 id="minutes">00</h2>
-        <p><small>minutes</small></p>
-        <h2 id="seconds">00</h2>
-        <p><small>seconds</small></p>
-					<p>Menuju Ramadhan 2022</p>
-					</div>
-					  
-					   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-		       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-					<script>
-	
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>FZXOFC || Dashboard</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.jpg" />
+</head>
+<body>
+  <div class="container-scroller"> 
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="images/favicon.jpg" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/favicon.jpg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top"> 
+        <ul class="navbar-nav">
+          <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+            <h1 class="welcome-text">Selamat datang di dashboard. <span class="text-black fw-bold"></span></h1>
+            <h3 class="welcome-sub-text">selamat menikmati dashboard yang baru. </h3>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Psatir Check </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">[GBUD ONLY] pilih salah satu.</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Psatir handal </p>
+                  <p class="fw-light small-text mb-0">afkh iyh banh iyj</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Psatir sedang</p>
+                  <p class="fw-light small-text mb-0">Banh</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Psatir biasa</p>
+                  <p class="fw-light small-text mb-0">Banghajdj</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Normal</p>
+                  <p class="fw-light small-text mb-0">Halo Bang</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">Info from Faiz</p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Ramadhan Coming in date..</h6>
+                  <p class="fw-light small-text mb-0"> 02 April 2022 </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Faiz Ganz telah diverifikasi!</h6>
+                  <p class="fw-light small-text mb-0"> Baru saja </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Paiz keabisan duid</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">Info : This web is in development.</p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/favicon.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/favicon.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">User</p>
+                <p class="fw-light text-muted mb-0">fzxofc@my.id</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> <span class="badge badge-pill badge-danger">NO</span></a>
+             
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"> </i> </a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> </a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i> </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border me-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border me-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+                    <li class="nav-item nav-category">Tools & Games</li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../ttc/index.html">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Tictactoe</span>
+              </a>
+               <a class="nav-link" href="kalkulator.html">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Kalkulator</span>
+              </a>
+                  <a class="nav-link" href="GuKeBa/">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Gunting Kertas Game</span>
+              </a>
+    <a class="nav-link" href="RandomPPCouple/">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Random PP Couple</span>
+              </a>
+    <a class="nav-link" href="ImgUpload/">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Image BB Uploader</span>
+              </a>
+          	</li>
+            </li>
+          <li class="nav-item nav-category">contact me</li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://wa.me/6285793887010">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Whatsapp</span>
+              </a>
+               <li class="nav-item">
+               <a class="nav-link" href="http://instagram.com/faiz_x.v">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Instagram</span>
+            </a>
+              <li class="nav-item">
+               <a class="nav-link" href="https://github.com/fzxcodes">
+              <i class="menu-icon mdi mdi-file-Whatsapp"></i>
+              <span class="menu-title">Github</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+              
+                  
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="whatsapp://send?text=Website Multifungsi FZXOFC : https://myfzxwofc.vercel.app" data-action="share/whatsapp/share" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share this web</a>
+                      <a href="eventmusic.html" class="btn btn-otline-dark"><i class="icon-printer">Play Music [Coming soon]</i> </a>
+                      <a href="listfile.html" class="btn btn-primary text-white me-0"><i class="icon-download"></i> List Files</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="statistics-details d-flex align-items-center justify-content-between">
+                          <div>
+                            <p class="statistics-title">Rating</p>
+                            <h3 class="rate-percentage">90.10%</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                          </div>
+                          <div>
+                            <p class="statistics-title">Pengunjung</p>
+                            <h3 class="rate-percentage">7,682</h3>
+                            <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
+                          </div>
+                          <div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Kegantengan Faiz</p>
+                            <h3 class="rate-percentage">Unlimited</h3>
+                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+ Unlimited</span></p>
+                          </div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Skill HTML</p>
+                            <h3 class="rate-percentage">newbie bg</h3>
+                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>1.0</span></p>
+                          </div>
+                          <div class="d-none d-md-block">
+                            <p class="statistics-title">Skill Copas</p>
+                            <h3 class="rate-percentage">100.0</h3>
+                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+9999.9%</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="row">
+                      <div class="col-lg-8 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-start">
+                                  <div>
+                                   <h4 class="card-title card-title-dash">Biodata</h4>
+                                   <h5 class="card-subtitle card-subtitle-dash">Name : Faiz Putra</h5>
+                                  <h5 class="card-subtitle card-subtitle-dash">Years : 12</h5>
+                                  <h5 class="card-subtitle card-subtitle-dash"> Class : Mangsih esde banh mau esempe!</h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card bg-primary card-rounded">
+                              <div class="card-body pb-0">
+                                <h4 class="card-title card-title-dash text-white mb-4">Status Kesenangan gweh</h4>
+                                <div class="row">
+                                  <div class="col-sm-4">
+                                    <p class="status-summary-ight-white mb-1">Naek turon</p>
+                                    <h2 class="text-info">357</h2>
+                                  </div>
+                                  <div class="col-sm-8">
+                                    <div class="status-summary-chart-wrapper pb-4">
+                                      <canvas id="status-summary"></canvas>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
+                                      <div class="circle-progress-width">
+                                        <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
+                                      </div>
+                                      <div>
+                                        <p class="text-small mb-2">Total Visitors</p>
+                                        <h4 class="mb-0 fw-bold">26.80%</h4>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="circle-progress-width">
+                                        <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                                      </div>
+                                      <div>
+                                        <p class="text-small mb-2">VISIT per hari</p>
+                                        <h4 class="mb-0 fw-bold">$YA_NDAK_TAU$</h4>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                        <div class="row flex-grow">
+                          <div class="col-12 grid-margin stretch-card">
+                            <div class="card card-rounded table-darkBGImg">
+                              <div class="card-body">
+                                <div class="col-sm-8">
+                                  <h3 class="text-white upgrade-info mb-0">
+                                    Halo Semua saya fzx, <span class="fw-bold">I created this web</span> for your needs (script/feature/other)
+                                  </h3>
+                                  <a href="https://saweria.co/faizfzx" class="btn btn-info upgrade-btn">Donate!</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-6 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                  <h4 class="card-title card-title-dash">Aktifitas </h4>
+                                  <p class="mb-0">Wes</p>
+                                </div>
+                                <ul class="bullet-line-list">
+                                  <li>
+                                    <div class="d-flex justify-content-between">
+                                      <div><span class="text-light-green">Saya </span>Rikod ni template</div>
+                                      <p>Just now</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex justify-content-between">
+                                      <div><span class="text-light-green">Dapid xcode7</span> Give gwej ni template</div>
+                                      <p>1h</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="d-flex justify-content-between">
+                                      <div><span class="text-light-green">BRAIN_COMMAND </span> gweh gabud</div>
+                                      <p>1h</p>
+                                    </div>
+                                  </li>
+                                  <li>
+                                </ul>
+                                <div class="list align-items-center pt-3">
+                                  <div class="wrapper w-100">
+                                    <p class="mb-0">
+                                      <a href="#" class="fw-bold text-primary">Lihat Semua<i class="mdi mdi-arrow-right ms-2"></i></a>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright <a href="https://github.com/fzxcodes" target="_blank">FZX</a> © 2022. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 
-var audioPlaying = true;
-        function LiveMuusic(){
-            
-        var audio = document.getElementById("bgMusic");
-        if (!audioPlaying) audio.play();
-        else audio.pause();
-        audioPlaying = !audioPlaying;
-        swal("Playing Alan Walker - On My Way ")
-        }
-   
- // Countdown Function
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="vendors/progressbar.js/progressbar.min.js"></script>
 
-const days = document.getElementById("days");
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const seconds = document.getElementById("seconds");
-const countdown = document.getElementById("countdown");
-const year = document.getElementById("year");
-const loading = document.getElementById("loading");
-// backup :     <div id="year" class="year"></div>
-const nextYear = new Date().getFullYear() + 1;
-const newYearTime = new Date(`April 02 2022 00:00:00`);
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="js/dashboard.js"></script>
+  <script src="js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+</body>
 
-function updateCountdown() {
-  const currentTime = new Date();
-  const difference = newYearTime - currentTime;
-  const currentDays = Math.floor(difference / 1000 / 60 / 60 / 24);
-  const currentHours = Math.floor(difference / 1000 / 60 / 60) % 24;
-  const currentMinutes = Math.floor(difference / 1000 / 60) % 60;
-  const currentSeconds = Math.floor(difference / 1000) % 60;
-  days.innerText = currentDays;
-  hours.innerText = currentHours < 10 ? "0" + currentHours : currentHours;
-  minutes.innerText =
-    currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
-  seconds.innerText =
-    currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
-}
+</html>
 
-setTimeout(() => {
-  loading.remove();
-  countdown.style.display = "flex";
-}, 1000);
-
-setInterval(updateCountdown, 1000);
-
-year.innerText = nextYear;   
-
-
-
-
-</script>
-					
-					
-	</html>
-	</head>
